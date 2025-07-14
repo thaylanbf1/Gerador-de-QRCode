@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de QR Code</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/script.js" defer></script>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <header id="qr-header">
+            <h1>Gerador de QR Code</h1>
+            <p>Inisra uma URL para gerar um QR Code</p>
+        </header>
+        <div id="qr-form">
+            <div class="form-group">
+                <input type="text" placeholder="Digite a URl..." id="url-input">
+            </div>
+            <div class="custom">
+                <div class="sec-title">Personalização</div>
+            </div>
+            <div class="form-group">
+                <label>Cores do QR CODE</label>
+                <div class="color-inputs">
+                    <div class="color-input">
+                        <input type="color" id="fg-color" value="#000000">
+                        <label for="fg-color">Cor principal</label>
+                    </div>
+                    <div class="color-input">
+                        <input type="color" id="bg-color" value="#ffffff">
+                        <label for="bg-color">Cor de fundo</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Estilo da Borda</label>
+                <select name="" id="border-style">
+                    <option value="none">Sem borda</option>
+                    <option value="gradient">Gradiente</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label>Icone Central</label>
+                <div class="icon-selector">
+                    <div class="icon-option no-icon" data-icon="" title="Sem ícone">
+                       <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div class="icon-option" data-icon="fa-brands fa-github" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                    </div>
+                    <div class="icon-option" data-icon="fa-brands fa-instagram" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="icon-option" data-icon="fa-brands fa-telegram" title="Telegram">
+                    <i class="fa-brands fa-telegram"></i>
+                    </div>
+                    <div class="icon-option" data-icon="fa-brands fa-google" title="E-mail">
+                   <i class="fa-brands fa-google"></i>
+                    </div>
+                    <div class="icon-option" data-icon="fa-brands fa-facebook" title="facebook">
+                  <i class="fa-brands fa-facebook"></i>
+                    </div>
+                     <div class="icon-option" data-icon="fa-brands fa-whatsapp" title="whatsapp">
+                        <i class="fa-brands fa-square-whatsapp"></i>
+                    </div>
+                    <div class="icon-option" data-icon="fa-brands fa-discord" title="discord">
+                        <i class="fa-brands fa-discord"></i>
+                    </div>
+                     <div class="icon-option" data-icon="fa-brands fa-linkedin" title="linkedin">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </div>
+                    <div class="icon-option" data-icon="fa-brands fa-wpforms" title="formulário">
+                       <i class="fa-brands fa-wpforms"></i>
+                    </div>
+                    <div class="icon-option" data-icon="fa-brands fa-x-twitter" title="twitter">
+                       <i class="fa-brands fa-square-x-twitter"></i>
+                    </div>
+                    <div class="icon-option" data-icon="fa-brands fa-edge" title="site">
+                      <i class="fa-brands fa-edge"></i>
+                    </div>
+                </div>
+            </div>
+
+            <button class="generate" onclick="gerarQrCode()">Gerar</button>
+            <div id="qr-code">
+                <img src="img/qrcode.png" alt="QR Code" id="qrcode">
+                <div class="btn">
+                    <button class="download" onclick="downloadPdf()"><i class="fa-regular fa-file-pdf"></i> download</button>
+                    <button class="png" onclick="dowlnoadPng()"><i class="fa-regular fa-file-image"></i> download</button>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</body>
+</html>
