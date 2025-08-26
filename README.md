@@ -34,4 +34,4 @@ Este é um projeto de um gerador de QR Code desenvolvido com HTML, CSS e JavaScr
 
 ---
 
-Feito com ❤️
+
